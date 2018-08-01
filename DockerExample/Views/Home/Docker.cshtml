@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "Docker";
+}
+
+<h1>Download Docker </h1>
+
+<p>Get Docker Community Edition for Windows. Docker for Windows is available for free, requires Microsoft Windows 10 Professional or Enterprise 64-bit.</p>
+<p> For previous versions get <strong><a href="https://docs.docker.com/toolbox/overview/"> Docker Toolbox.</a> </strong></p>
+
+<center>
+    <img src="~/images/docker.jpg" style="max-width: 600px; max-height: 600px" alt="docker1" class="img-responsive" />
+    <br /><br />
+    <a class="btn btn-primary" href="https://store.docker.com/editions/community/docker-ce-desktop-windows">
+        <strong>Docker for Windows</strong>
+    </a>
+</center>
+
+
+<h2>Docker Community Edition for Windows</h2>
+
+<p>
+    Docker CE for Windows is Docker designed to run on Windows 10. It is a native Windows application that provides an easy-to-use development environment for building, shipping, and running dockerized apps.
+    Docker CE for Windows uses Windows-native Hyper-V virtualization and networking and is the fastest and most reliable way to develop Docker apps on Windows.Docker CE for Windows supports running both Linux and Windows Docker containers.
+</p>
+
+
+<h2>What to know before you install</h2>
+
+ If your system does not meet the requirements to run Docker for Windows, you can install Docker Toolbox, which uses Oracle Virtual Box instead of Hyper-V. <br /><br />
+<ul>
+    <li>
+        <strong> README FIRST for Docker Toolbox and Docker Machine users: </strong> Docker for Windows requires Microsoft Hyper-V to run. The Docker for Windows installer enables Hyper-V for you, if needed, and restart your machine. After Hyper-V is enabled, VirtualBox no longer works, but any VirtualBox VM images remain.
+        VirtualBox VMs created with <code class="cod">docker-machine</code> (including the <code class="cod">default</code> one typically created during Toolbox install) no longer start. These VMs cannot be used side-by-side with Docker for Windows. However, you can still use <code class="cod">docker-machine</code> to manage remote VMs.
+    </li>
+    <li>
+        Virtualization must be enabled in BIOS and CPU SLAT-capable. Typically, virtualization is enabled by default. This is different from having Hyper-V enabled. For more detail see<a href="https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization"> Virtualization must be enabled</a> in Troubleshooting.
+    </li>
+    <li>The current version of Docker for Windows runs on 64bit Windows 10 Pro, Enterprise and Education (1607 Anniversary Update, Build 14393 or later).</li>
+    <li>Containers and images created with Docker for Windows are shared between all user accounts on machines where it is installed. This is because all Windows accounts use the same VM to build and run containers.</li>
+    <li>Nested virtualization scenarios, such as running Docker for Windows on a VMWare or Parallels instance, might work, but come with no guarantees. For more information, see <a href="https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-for-windows-in-nested-virtualization-scenarios">  Running Docker for Windows in nested virtualization scenarios</a></li>
+    <li> <strong>What the Docker for Windows install includes:</strong>The installation provides<a href="https://docs.docker.com/config/daemon/">Docker Engine</a>, Docker CLI client,<a href="https://docs.docker.com/compose/overview/">Docker Compose</a> ,<a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, and <a href="https://docs.docker.com/kitematic/userguide/">Kitematic</a>.</li>
+</ul>
+
+<h2>Install Docker in your PC</h2>
+
+<p>Install Double-click <code class="cod"> Docker for Windows Installer</code> to run the installer. </p>
+
+<p>
+    When the installation finishes, Docker starts automatically. The whale <img src="~/images/whale.png" alt="whale" /> in the notification area indicates that Docker is running, and accessible from a terminal.
+</p>
+
+<h2>Run</h2>
+
+<p>Open a command-line terminal like PowerShell, and try out some Docker commands! </p>
+
+
+<p>Run <code class="cod">docker version</code> to check the version. </p>
+
+<p>Run <code class="cod">docker run hello-world </code> to verify that Docker can pull and run images.</p>
+
+<h2>Enjoy</h2>
+
+<p>Docker is available in any terminal as long as the Docker CE for Windows app is running. Settings are available on the UI, accessible from the Docker whale in the taskbar.</p>
+
+<img src="~/images/d4win-artboard4.png" alt="docker2" class="img-responsive" />
+
+<h2>Test your installation</h2>
+
+<ol>
+    <li>
+        <p>Open a terminal window (Command Prompt or PowerShell, but not PowerShell ISE).</p>
+    </li>
+
+    <li>
+        <p>Run <code class="cod"> docker --version </code> to ensure that you have a supported version of Docker: </p>
+        <div class="language-highlight">
+            <div class="highlight">
+                <pre class="cod"> <code> docker <span class="sn">--version</span>
+  Docker version 18.03.0-ce, build 0520e24
+    </code></pre>
+            </div>
+        </div>
+    </li>
+    <li>
+        <p>Pull the hello-world image from Docker Hub and run a container:</p>
+        <div class="language-highlight">
+            <div class="highlight">
+                <pre class="cod"><code>
+  > docker run hello-world
+
+  docker : Unable to find image 'hello-world:latest' locally
+  ...
+  latest:
+  Pulling from library/hello-world
+  ca4f61b1923c:
+  Pulling fs layer
+  ca4f61b1923c:
+  Download complete
+  ca4f61b1923c:
+  Pull complete
+  Digest: sha256:97ce6fa4b6cdc0790cda65fe7290b74cfebd9fa0c9b8c38e979330d547d22ce1
+  Status: Downloaded newer image for hello-world:latest
+
+  Hello from Docker!
+  This message shows that your installation appears to be working correctly.
+  ...
+
+</code></pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <p> List the <code class="cod"> hello-world</code> image that was downloaded from Docker Hub: </p>
+        <div class="language-highlight" ">
+            <div class="highlight">
+                <pre class="cod"> <code> > docker image ls</code></pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <p> List the <code class="cod"> hello-world</code> container (that exited after displaying “Hello from Docker!”): </p>
+        <div class="language-highlight">
+            <div class="highlight">
+                <pre class="cod"> <code> > docker container ls --all </code></pre>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <p>  Explore the Docker help pages by running some help commands: </p>
+        <div class="language-highlight">
+            <div class="highlight">
+                <pre class="cod"> <code><span class="sn"> > docker --help</span>
+  > docker container --help
+  > docker container ls --help
+  > docker run --help
+                </code></pre>
+            </div>
+        </div>
+    </li>
+</ol>
+
+<p>To learn more, read the <strong> <a href="https://docs.docker.com/docker-for-windows/"> Docker for Windows documentation </a></strong> </p>
+<p>Be sure to check out <strong><a href="https://docs.docker.com/docker-for-windows/#where-to-go-next"> Where to go next </a> </strong> for links to labs and examples, and how to get started using swarm mode.</p>
+<center>
+<img src="~/images/docker2.png" style="max-width: 600px; max-height: 600px" alt="docker1" class="img-responsive" />
+</center>

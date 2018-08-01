@@ -1,0 +1,1 @@
+C:\Users\matia\Desktop\Proyecto\DockerExample\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
